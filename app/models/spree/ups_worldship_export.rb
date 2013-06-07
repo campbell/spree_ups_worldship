@@ -7,9 +7,12 @@ class Spree::UpsWorldshipExport < ActiveRecord::Base
 		address = shipment.address
 
 		service_code = shipment.shipping_method.calculator.service_code rescue nil
-		packages = shipment.shipping_method.calculator.send(:packages, order)
-		total_weight = packages.collect{|p| p.weight}.reduce(:+)
-		total_weight_in_lbs = (total_weight / Spree::ActiveShipping::Config[:unit_multiplier]).round(2)
+		total_weight_in_lbs = nil
+		if shipment.shipping_method.calculator.respond_to?(:packages)
+			packages = shipment.shipping_method.calculator.send(:packages, order)
+			total_weight = packages.collect{|p| p.weight}.reduce(:+)
+			total_weight_in_lbs = (total_weight / Spree::ActiveShipping::Config[:unit_multiplier]).round(2)
+		end
 
 		attr = {
 	 		:order_number => order.number,
