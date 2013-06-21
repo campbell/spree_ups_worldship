@@ -3,6 +3,11 @@ SpreeUpsWorldship
 
 Make it easier to integrate Spree with the horrible UPS WorldShip application.
 
+Installation / Migrations
+=========================
+
+rails g spree_ups_worldship:
+
 
 Example
 =======
