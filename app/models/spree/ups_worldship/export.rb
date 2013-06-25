@@ -8,7 +8,7 @@
 
 class Spree::UpsWorldship::Export < ActiveRecord::Base
 
-  self.table_name = 'spree_upsworldship_exports'
+  self.table_name = 'spree_ups_worldship_exports'
 
   attr_accessible :order_number, :shipping_name, :shipping_address_id, :shipping_address1, :shipping_address2, :shipping_city, :shipping_state, :shipping_zipcode, :shipping_phone, :shipping_country, :shipping_method, :shipment_id, :shipment_number, :shipment_date, :shipment_weight_in_lbs
 

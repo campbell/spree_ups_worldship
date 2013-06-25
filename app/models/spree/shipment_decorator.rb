@@ -1,6 +1,6 @@
 module Spree
 	Shipment.class_eval do
-#		has_one :export, :class_name => 'Spree::UpsWorldship::Export'
+		#has_one :ups_export, :class_name => 'Spree::UpsWorldship::Export'
 		after_save :update_worldship
 
 		def update_worldship
