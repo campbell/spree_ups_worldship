@@ -42,8 +42,8 @@ class Spree::UpsWorldship::Shipment
       :shipment_date => shipment.updated_at
     }
 
-    export = Spree::UpsWorldship::Export.find_by_shipment_id(shipment.id) ||
-     Spree::UpsWorldship::Export.new
+    export = Spree::UpsWorldship::Export.find_by_shipment_id(shipment.id) || Spree::UpsWorldship::Export.new
+
     export.update_attributes(attr)
   end
 
