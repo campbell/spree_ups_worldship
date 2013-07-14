@@ -61,8 +61,10 @@ class Spree::UpsWorldship::Shipment
   end
 
   def total_weight
-    package_weights.reduce(:+)
+    weight = package_weights.reduce(:+) || shipment.line_items.collect{|i| i.quantity * i.variant.weight.to_f}.reduce(:+)
   end
+
+
 
   def full_name(address)
     "#{address.firstname} #{address.lastname}"
