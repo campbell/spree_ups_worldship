@@ -8,6 +8,8 @@
 
 class Spree::UpsWorldship::Shipment
 
+  DEFAULT_FLAT_RATE_SERVICE_CODE = 'GND'
+
   # TODO - This model should be split into a new model that contains the shipment info and then writes out an Export record
   def initialize(shipment)
     @shipment = shipment
@@ -47,8 +49,12 @@ class Spree::UpsWorldship::Shipment
     export.update_attributes(attr)
   end
 
+  def calculator
+    shipment.shipping_method.calculator
+  end
+
   def service_code
-    shipment.shipping_method.calculator.service_code rescue nil
+    calculator.respond_to?(:service_code) ? calculator.service_code : DEFAULT_FLAT_RATE_SERVICE_CODE
   end
 
   def packages
