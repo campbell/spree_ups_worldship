@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_ups_worldship'
-  s.version     = '0.1.8'
+  s.version     = '0.1.9'
   s.summary     = 'Better integration with UPS WorldShip'
   s.description = 'Integrating with UPS sucks, this gem makes it less-sucky'
   s.required_ruby_version = '>= 1.8.7'
