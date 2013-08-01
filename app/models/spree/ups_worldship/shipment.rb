@@ -67,7 +67,7 @@ class Spree::UpsWorldship::Shipment
   end
 
   def total_weight
-    weight = package_weights.reduce(:+) || shipment.inventory_units.collect{|i| i.quantity * i.variant.weight.to_f}.reduce(:+)
+    weight = package_weights.reduce(:+) || shipment.inventory_units.collect{|i| i.variant.weight.to_f}.reduce(:+)
   end
 
 
